@@ -20,7 +20,7 @@ This is a tutorial (Only Chinese for now) for the Object Detection model —— 
 
 几乎每个文件都可以单独运行，看看该文件实现的功能是什么样子的。
 
-最后要声明一下，这个代码是我看了别人代码之后写出来的，链接在这里：https://github.com/yhenon/pytorch-retinanet，该代码是我比较喜欢的类型，思路比较清晰，或者说是，和我对目标检测模型实现的理解比较吻合吧。如果你比较专业，或者想要直接运行，跑个coco看看结果的，你可以直接去这个链接，极力推荐！！
+最后要声明一下，这个代码是我看了别人代码之后写出来的，链接在这里：`https://github.com/yhenon/pytorch-retinanet` ，该代码是我比较喜欢的类型，思路比较清晰，或者说是，和我对目标检测模型实现的理解比较吻合吧。如果你比较专业，或者想要直接运行，跑个coco看看结果的，你可以直接去这个链接，极力推荐！！
 
 
 
