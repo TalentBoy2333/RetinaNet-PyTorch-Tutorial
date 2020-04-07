@@ -1,0 +1,1 @@
+将coco dataset中的`train2017`图像文件夹放在该路径下。
