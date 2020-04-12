@@ -4,8 +4,9 @@ https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
 '''
 import torch
 import torch.nn as nn
-# 在该教程中我们使用resnet101作为backbone
-RESNET101PATH = './param/pretrain/resnet101-5d3b4d8f.pth'
+# 在该教程中我们使用resnet50作为backbone
+RESNET101PATH = './param/pretrain/resnet101-5d3b4d8f.pth' # resnet101
+RESNET50PATH = './param/pretrain/resnet50-19c8e357.pth' # resnet50
 
 
 def conv3x3(in_planes, out_planes, stride=1, groups=1, dilation=1):
@@ -225,7 +226,7 @@ class ResNet(nn.Module):
 def _resnet(arch, block, layers, pretrained, progress, **kwargs):
     model = ResNet(block, layers, **kwargs)
     if pretrained:
-        state_dict = torch.load(RESNET101PATH)
+        state_dict = torch.load(RESNET50PATH)
         '''
         # load_state_dict方法还有一个重要的参数是strict，该参数默认是True，
         # 表示预训练模型的层和自己定义的网络结构层严格对应相等（比如层名和维度）。
@@ -234,6 +235,16 @@ def _resnet(arch, block, layers, pretrained, progress, **kwargs):
         '''
         model.load_state_dict(state_dict, strict=False)
     return model
+
+def resnet50(pretrained=False, progress=True, **kwargs):
+    r"""ResNet-50 model from
+    `"Deep Residual Learning for Image Recognition" <https://arxiv.org/pdf/1512.03385.pdf>`_
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet
+        progress (bool): If True, displays a progress bar of the download to stderr
+    """
+    return _resnet('resnet50', Bottleneck, [3, 4, 6, 3], pretrained, progress,
+                   **kwargs)
 
 def resnet101(pretrained=False, progress=True, **kwargs):
     r"""ResNet-101 model from

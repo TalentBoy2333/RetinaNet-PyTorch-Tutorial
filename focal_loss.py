@@ -5,7 +5,7 @@ import numpy as np
 from utils import cal_iou
 from anchor import Anchor
 from retina_net import RetinaNet
-from utils import UnNormalizer, TransformBoxs
+from utils import UnNormalizer
 
 cuda = torch.cuda.is_available()
 

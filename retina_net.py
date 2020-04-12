@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn 
 import numpy as np 
-from resnet import resnet101 
+from resnet import resnet50 
 from fpn import FPN 
 
 
@@ -131,7 +131,7 @@ class RetinaNet(nn.Module):
     '''
     def __init__(self, training=True, fpn_channel=256, class_num=80, anchor_num=9):
         super(RetinaNet, self).__init__()
-        self.resnet = resnet101(pretrained=training) 
+        self.resnet = resnet50(pretrained=training) 
         self.fpn = FPN(fpn_channel=256) 
         self.classifier = Classifier(fpn_channel, class_num, anchor_num) 
         self.localizer = Localizer(fpn_channel, anchor_num) 
